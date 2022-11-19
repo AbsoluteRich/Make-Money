@@ -356,19 +356,7 @@ while True:
             case "work":
                 earn(random(50, 100))
 
-            case "crime":
-                # You commited a crime and got away with $!
-                # You tried commiting a crime, but got caught. You were fined for $.
-                # Todo: Job system? It sounds complicated but all you'd need is multiple work payouts
-                #  and a function that allows you to get fired if you commit too many crimes
-                force_exit(f"Unimplemented case: '{choice}'")
-
-            case "fish" | "hunt":
-                # Todo: Can't forget this Dank Memer classic
-                force_exit(f"Unimplemented case: '{choice}'")
-
             case "shop" | "inventory" | "inv":
-                # Readme: https://dankmemer.lol/items
                 AutoTyper.display()
                 BackroomDeals.display()
                 WeightedChip.display()
@@ -479,9 +467,6 @@ while True:
                     "gamble": "High risk, high reward",
                     "loan": "Gain an instant burst of money, but you need to pay it off over time",
                     "work": "Make money",
-                    "crime": "High risk, high reward",
-                    "fish": "Unimplemented",
-                    "hunt": "Unimplemented",
                     "shop": "Buy wares",
                     "debug": "Don't even try",
                     "win": "Only one way to find out",
@@ -490,8 +475,8 @@ while True:
                 }
 
                 print("All commands:")
-                for line in sorted(commands.keys()):
-                    print(f"    • {line}")
+                for line in sorted(commands):
+                    print(f"    • {line}: {commands[line]}")
                 print("Commands are not case sensitive.")
 
             case _:
