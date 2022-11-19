@@ -228,7 +228,6 @@ else:
     else:
         force_exit(f"Invalid length, "
                    f"got '{save_file['checksum'][0]}'")
-        #                    f"was expecting '{len(str(sum_of_numbers))}', "
 
     # Checks for valid symbol
     if save_file["checksum"][1] == "/" or save_file["checksum"][1] == "%":
@@ -237,7 +236,6 @@ else:
     else:
         force_exit(f"Invalid symbol, "
                    f"got '{save_file['checksum'][1]}'")
-        #                    f"was expecting '/' or '%', "
 
     # Finally, checks if the maths works out
     if save_file["checksum"][1] == "/":
@@ -247,7 +245,7 @@ else:
         else:
             force_exit(f"Invalid division, "
                        f"got '{save_file['checksum'][2]}'")
-            #                        f"was expecting '{sum_of_numbers / 2}', "
+
     elif save_file["checksum"][1] == "%":
         if str(sum_of_numbers / 2).split('.')[1] == str(save_file["checksum"][2]):
             if devmode:
@@ -255,7 +253,7 @@ else:
         else:
             force_exit(f"Invalid decimal, "
                        f"got '{save_file['checksum'][2]}'")
-            #                        f"was expecting '{str(sum_of_numbers / 2).split('.')[1]}', "
+
     else:
         force_exit(f"Invalid symbol further into execution, got '{save_file['checksum'][1]}'")
 
@@ -315,7 +313,7 @@ while True:
         if debt > 0:
             print(f"You owe ${debt} in debt")
 
-        choice = input(">>").casefold()
+        choice = input(">>").casefold().strip()
 
         match choice:
             case "gamble":
@@ -375,9 +373,9 @@ while True:
                 BackroomDeals.display()
                 WeightedChip.display()
 
-                choice = input("Would you like to buy? ").casefold()
+                choice = input("Would you like to buy? ").casefold().strip()
                 if choice in ["true", "1", "t", "y", "yes", "yeah", "yup", "certainly", "uh-huh"]:
-                    choice = input("What would you like to buy? (1/2/3) ")
+                    choice = input("What would you like to buy? (1/2/3) ").casefold().strip()
                     match choice:
                         case "1":
                             print(f"You have ${coins}")
@@ -399,7 +397,7 @@ while True:
 
             case "debug":
                 if devmode is True:
-                    choice = input("(list/coins/runs/file) >>").casefold()
+                    choice = input("(list/coins/runs/file) >>").casefold().strip()
                     match choice:
                         case "list":
                             all_variables = dir()
@@ -432,9 +430,9 @@ while True:
             case "win":
                 if coins >= 5000:
                     print("You have $5000!")
-                    choice = input("Win? ")
+                    choice = input("Win? ").casefold().strip()
 
-                    if choice.casefold() in ["true", "1", "t", "y", "yes", "yeah", "yup", "certainly", "uh-huh"]:
+                    if choice in ["true", "1", "t", "y", "yes", "yeah", "yup", "certainly", "uh-huh"]:
 
                         if exists("You win!.png"):
                             filename = "You win! - Exported.png"
@@ -448,8 +446,8 @@ while True:
                             from urllib.request import urlretrieve as download
 
                             print("Downloading your prize...")
-                            download("https://raw.githubusercontent.com/AbsoluteRich/Make-Money/main/src/Certificate"
-                                     "%20of%20-%20Exported.PNG", f"{filename}")
+                            download("https://raw.githubusercontent.com/AbsoluteRich/Make-Money/"
+                            "main/src/Certificate%20of%20-%20Exported.PNG", f"{filename}")
 
                             print(f"Done. Check the program directory for '{filename}'.")
                             input("Press Enter and the program will spontaneously combust. ")
@@ -467,8 +465,8 @@ while True:
                             from urllib.request import urlretrieve as download
 
                             print("Downloading your prize...")
-                            download("https://raw.githubusercontent.com/AbsoluteRich/Make-Money/main/src/Certificate"
-                                     "%20of.PNG", f"{filename}")
+                            download("https://raw.githubusercontent.com/AbsoluteRich/Make-Money/"
+                            "main/src/Certificate%20of.PNG", f"{filename}")
 
                             print(f"Done. Check the program directory for '{filename}'.")
                             input("Press Enter and the program will spontaneously combust. ")
