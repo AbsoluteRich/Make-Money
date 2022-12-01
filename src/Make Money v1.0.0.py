@@ -12,7 +12,7 @@ class Item:
         self.itemname = itemname
         self.description = description
         self.price = price
-        self.nature = True if nature is not None else False  # [on_true] if [expression] else [on_false]
+        self.nature = True if nature is not None else False
         self.stock = stock
 
     def buy(self, quantity=1):
@@ -124,7 +124,6 @@ def create_sum():
     for line in save_file:
         try:
             if save_file[line] is not True and save_file[line] is not False:
-                # print(line, save_file[line])
                 sum_of_numbers += save_file[line]
         except TypeError:
             continue
@@ -153,9 +152,6 @@ def update_save():
 
 
 def log(message):
-    # now = dt.datetime.now()
-    # reformatted = now.strftime("%d-%m-%Y %I:%M:%S %p")
-
     if not exists("logs.txt"):
         with open("logs.txt", "x"):
             pass
@@ -388,17 +384,12 @@ while True:
                     choice = input("(list/coins/runs/file) >>").casefold().strip()
                     match choice:
                         case "list":
+                            # https://www.geeksforgeeks.org/viewing-all-defined-variables-in-python/
                             all_variables = dir()
 
-                            # Iterate over the whole list where dir() is stored.
                             for name in all_variables:
-
-                                # Print the item if it doesn't start with '__'
                                 if not name.startswith('__'):
-                                    # myvalue = eval(name)
-                                    print(
-                                        f"{name}: {eval(name)} ({type(name)})")
-                                    # print(f"{name} is {type(myvalue)}, and is equal to {myvalue}")
+                                    print(f"{name}: {eval(name)} ({type(name)})")
 
                         case "coins":
                             choice = int(input(""))
