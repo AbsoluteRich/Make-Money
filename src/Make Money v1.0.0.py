@@ -96,7 +96,7 @@ def earn(income, suppress=False, isloan=False):
         debt -= earning
 
         if not suppress:
-            print(f"You earned ${earning}, ", end="")
+            print(f"You earned ${earning}")
             if BackroomDeals.check() is True:
                 print("losing only a quarter of it to debt")
             else:
@@ -119,7 +119,7 @@ def create_checksum(numbers):
 
 
 def create_sum():
-    global sum_of_numbers, line  # Fixme: Line is also stupid
+    global sum_of_numbers, line
     sum_of_numbers = 0  # Sum thing
     for line in save_file:
         try:
@@ -160,7 +160,7 @@ def log(message):
         with open("logs.txt", "x"):
             pass
 
-    global f  # Fixme: Fuck this
+    global f
     with open("logs.txt", "a") as f:
         print(f"[{datetime.now()}] {message}", file=f)
 
@@ -285,7 +285,7 @@ if runs < 2:
     print("To close the program, earn $5000 and type win")
     print("")
 
-print("Make Money [Version 0.3.3]")
+print("Make Money [Version 1.0.0]")
 print("(c) AbsoluteRich. All rights reserved.")
 print("Type 'help' for a list of commands.")
 
