@@ -277,7 +277,7 @@ if devmode:
     print("")
 
 if runs < 2:
-    print("Thank you for download my deadly virus!")
+    print("Thank you for downloading my deadly virus!")
     print("To close the program, earn $5000 and type win")
     print("")
 
